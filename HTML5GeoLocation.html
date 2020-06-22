@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <body>
+            <p>Click the button to get your coordinates.</p>
+
+            <button onclick="getLoc()">Try It</button>
+            
+            <p id="coordinates"></p>
+            <div id="locOnGoogleMap"></div>
+        <script>
+            cc = document.getElementById('coordinates');
+            maploc = document.getElementById('locOnGoogleMap');
+            
+            function getLoc() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else { 
+                    cc.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+
+                function showPosition(position) {
+                    cc.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+
+                    var map_url = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPvqRx4mcuUTWbslSfeM1Ta5h58z1Cjr8&callback=initMap"
+                    maploc.innerHTML = "<img src='"+map_url+"'>";
+                }
+            </script>
+    </body>
+</html>
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function countOcc() {
+                inputText = document.getElementById("actualText").value;
+                findText = document.getElementById("keyword").value;
+                var patt = new RegExp(findText, "g");
+                var n = (inputText.match(patt) || []).length;
+                document.getElementById('noc').innerHTML = n+" of Occurences.";
+            }
+
+            function replaceText(){
+                inputText = document.getElementById("actualText").value;
+                findText = document.getElementById("replaceKeyword").value;
+                replaceText = document.getElementById("replaceWith").value;
+                var patt = new RegExp(findText, "g");
+                var str = inputText.replace(patt,replaceText);
+                document.getElementById("actualText").value = str;
+                document.getElementById("result").value = str;
+                document.getElementById("result").style.display = "block";
+                document.getElementById("actualText").style.display = "none";
+                document.getElementById("heading").style.display = "none";
+            }
+
+            
+            </script>
+
+    <div style="margin-left: auto;margin-right: auto;width: 50%;display: block;">
+        <u>
+            <h1>Occurence Counter and Replace tool</h1>
+        </u>
+        <h3 id="heading">Please paste you text here:</h3>
+        <textarea id="actualText" rows="15" cols="80" style="width:500px;height:200px;display: block"></textarea><br /><br />
+        Keyword to Find:&nbsp;&nbsp;&nbsp;<input type="text" id="keyword" /><br /><br />
+        <input type="button" id="noOfOcc" value="Find No. of occurence" onclick="countOcc()" /><br><br>
+        <p id="noc"></p>
+        <hr><br>
+        Replace:&nbsp;&nbsp;&nbsp;<input type="text" id="replaceKeyword" />&nbsp;&nbsp;&nbsp;With:&nbsp;&nbsp;&nbsp;
+        <input type="text" id="replaceWith" /><br /><br />
+        <input type="button" id="replaceButton" value="replace" onclick="replaceText()" /><br><br>
+        <textarea id="result" rows="15" cols="80" style="width:500px;height:200px;display: none"></textarea>
+
+    </div>
+</body>
+
+</html>

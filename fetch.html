@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <script>
+    const url = 'http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3';
+    function getdata(){
+   fetch('http://www.clashapi.xyz/api/arenas')
+      .then(function(res){
+        var a=res.json();
+        console.log(a)
+        return a;
+      })
+      .then(function(data){
+        let output=`<table style="width:100%">
+          <tr>
+            <th>Victory Gold</th> 
+            <th>Name</th>
+            <th>MinTrophies</th>
+          </tr>`;
+        data.forEach(function(arena){
+          output += `
+          <tr>
+            <td>${arena.victoryGold}</td>
+            <td>${arena.name}</td>
+            <td>${arena.minTrophies}</td>
+          <tr>`;})
+        document.getElementById("output").innerHTML=output
+      })

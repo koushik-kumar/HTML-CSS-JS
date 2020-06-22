@@ -1,0 +1,39 @@
+<!-- HTML Local Storage 
+    Introduction: Since the HTTP transport layer is stateless, the data gets reset everytime we close and open. And for
+    this, data used to be stored previously using cookies, where it stores to a maximum of 4KB, sent with every request
+    leading to the load on server. Hence, for this overhead, HTML5 came up with HTML Local storage. These store data in 
+    the form of key-value  pairs and is available through two versions, Session Storage and Local Storage.
+    -Session Storage data is available for that complete session( till the window is closed and then get deleted). The 
+    session storage is not available to multiple windows even from same domain unlike Local Storage.
+    -Local Storage is available to all the windows of same origin(Domain). The Local Storage data is available even after
+    the browser is closed.
+
+    Programming Question: Store the details of a Book using HTML Local Storage
+-->
+<!DOCTYPE html>
+<html>
+<title>HTML Local Storage </title>
+
+<body>
+    <h1>HTML Local Storage</h1>
+    <script>
+        var book1 = {};
+        book1.Name = 'Fundamentals of Computer Architecture and Design';
+        book1.Author = 'Ahmet Bindal';
+        book1.Publisher = 'Springer International Publishing';
+        book1.ISBN = '978-3-319-25811-9';
+        book1.NoOfPages = 533;
+        var book2 = {};
+        book2.Name = 'Operating System Concepts';
+        book2.Author = 'Abraham Silberschatz';
+        book2.Publisher = 'Wiley';
+        book2.ISBN = '978-1118129388';
+        book2.NoOfPages = 944;
+        localStorage.setItem('Book1', JSON.stringify(book1));
+        console.log(JSON.parse(localStorage.getItem('Book1')));
+        sessionStorage.setItem('Book2', JSON.stringify(book2));
+        console.log(JSON.parse(sessionStorage.getItem('Book2')));
+    </script>
+</body>
+
+</html>

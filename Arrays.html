@@ -1,0 +1,41 @@
+<!-- Arrays:
+
+Introduction: Arrays in javascript, is a special objects that allows you to store more than one value at a time. 
+
+Programming Question: The four most common cars in San Jose, CA are Toyoto Camry,  Nissan Altima, Ford Explorer and Subra Legacy.
+Their cost(USD)-MPG-Horsepower are 23845-29-301, 23750-28-236, 32365-19-365 and 22345-25-256 respectively. Write the code to represent
+this code in a table using Arrays. -->
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function displayArray() {
+            let row1 = ["Toyoto Camry", 23845, 29, 301];
+            let row2 = ["Nissan Altima", 23750, 28, 236];
+            let row3 = ["Ford Explorer", 32365, 19, 365];
+            let row4 = ["Subra Legacy", 22345, 25, 256];
+            let finalArray = [row1,row2,row3,row4];
+            document.write("<table border=1>");
+            document.write("<th>Car-Model</th><th>Cost</th><th>MPG</th><th>Horsepower</th>");
+            for(var i=0; i<=3; i++) {
+                document.write("<tr>");
+                for(var j=0; j<=3; j++){
+                    document.write("<td>",finalArray[i][j],"</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+    <p>The four most common cars in San Jose, CA are Toyoto Camry, Nissan Altima, Ford Explorer and Subra Legacy.
+        Their cost(USD)-MPG-Horsepower are 23845-29-301, 23750-28-236, 32365-19-365 and 22345-25-256 respectively.
+        Write the code to represent
+        this code in a table using Arrays.</p>
+    <input type="button" onclick="displayArray()" value="Output">
+    <p id="arrayTable"></p>
+
+
+</body>
+
+</html>

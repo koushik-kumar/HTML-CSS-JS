@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>A typical arithmetic operation takes two numbers (or expressions) and produces a new number.</p>
+
+    <button onclick="errorCheck()">Try it</button>
+    <p id="demo"></p>
+
+    <script>
+        function errorCheck() {
+            try {
+                var x;
+            for (var i = 10; i >= 0; i--) {
+                x = 10 / i;
+                consolle.log(x);
+            }
+            document.getElementById("demo").innerHTML = x;
+            } catch (err) {
+                document.getElementById("demo").innerHTML =
+                    err.name + "<br>" + err.message;
+            }
+
+
+
+
+            
+        }
+    </script>
+
+</body>
+
+</html>

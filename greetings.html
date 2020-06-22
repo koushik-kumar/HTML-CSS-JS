@@ -1,0 +1,56 @@
+<!-- Events
+Introduction: Events are specific action items like say, click, hover, change etc., and javascript here does execue the respective code associated with that html element event. 
+
+Programming Question: Using the events, design a Valentine Greetings webpage specific to each gender, responding  with appropriate message accordingly.
+
+Code:
+-->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function welcomeImage() {
+            var image = document.getElementById("wlcImage").src;
+            if (image.includes("boy") || image.includes("girl")) {
+                document.getElementById("wlcImage").src = "both.gif";
+                document.getElementById("wlcImage").style.display = "block";
+                document.getElementById("gender").style.display = "none";
+                document.getElementById("end").style.display = "block";
+            } else if (image.includes("both")) {
+                // do nothing
+            } else {
+                document.getElementById("wlcImage").style.display = "none";
+                document.getElementById("gender").style.display = "block";
+            }
+        }
+
+        function messageGif() {
+            if (document.getElementById('gender').value == "Queen") {
+                document.getElementById("wlcImage").src = "boy.gif";
+                document.getElementById("wlcImage").style.display = "block";
+                document.getElementById("gender").style.display = "none";
+            } else if (document.getElementById('gender').value == "King") {
+                document.getElementById("wlcImage").src = "girl.gif";
+                document.getElementById("wlcImage").style.display = "block";
+                document.getElementById("gender").style.display = "none";
+            }
+        }
+    </script>
+
+    <div style="margin-left: auto;margin-right: auto;width: 50%;display: block;">
+        <u>
+            <h1 id="start" style="display: block;">Valentine Greetings</h1>
+        </u>
+        <img onclick="welcomeImage()" id="wlcImage" src="click.jpg" alt="click" style="width:800px;height:600px;">
+        <select id="gender" onchange="messageGif()" style="display: none;margin-left: auto;margin-right: auto;width: 50%;margin-top: 50%">
+            <option value="Youare">You are</option>
+            <option value="King">King</option>
+            <option value="Queen">Queen</option>
+        </select>
+        <h1 id="end" style="display: none">Takecare, Good Bye.</h1>
+    </div>
+</body>
+
+</html>
